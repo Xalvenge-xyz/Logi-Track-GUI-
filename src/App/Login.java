@@ -5,8 +5,16 @@
  */
 package App;
 
+import config.config;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.BorderFactory;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -40,7 +48,9 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         LoginPanel = new javax.swing.JPanel();
         LoginBtn = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        signupPanel = new javax.swing.JPanel();
+        signupbtn = new javax.swing.JLabel();
+        forgotpassword = new javax.swing.JLabel();
         headerTab = new javax.swing.JPanel();
         homePanel = new javax.swing.JPanel();
         homeBtn = new javax.swing.JLabel();
@@ -146,8 +156,10 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Password");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
+        LoginPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         LoginBtn.setBackground(new java.awt.Color(255, 255, 255));
-        LoginBtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LoginBtn.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         LoginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginBtn.setText("LOGIN");
         LoginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,12 +189,57 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(LoginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel3.add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 80, 20));
+        jPanel3.add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 80, 20));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Demo: admin / 1234");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, 270, 280, -1));
+        signupPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        signupbtn.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        signupbtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        signupbtn.setText("SIGN UP");
+        signupbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signupbtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signupbtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signupbtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout signupPanelLayout = new javax.swing.GroupLayout(signupPanel);
+        signupPanel.setLayout(signupPanelLayout);
+        signupPanelLayout.setHorizontalGroup(
+            signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signupPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        signupPanelLayout.setVerticalGroup(
+            signupPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signupPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel3.add(signupPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 80, 20));
+
+        forgotpassword.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        forgotpassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        forgotpassword.setText("Forgot password");
+        forgotpassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgotpasswordMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                forgotpasswordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                forgotpasswordMouseExited(evt);
+            }
+        });
+        jPanel3.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 270, 280, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 280, 300));
 
@@ -346,18 +403,67 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_exitBtnMousePressed
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
-        // TODO add your handling code here:
+        // waylabot
     }//GEN-LAST:event_usernameActionPerformed
 
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
-        
-        if(username.getText().equals("admin") && password.getText().equals("1234")){
-        
-        Dashboard dashboard = new Dashboard();
-        this.dispose();
-        dashboard.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+    // Get user input
+        String email = username.getText();
+        String rawPass = new String(password.getPassword());
+
+        try {
+            Connection conn = config.connectDB();
+
+            // Hash the entered password
+            String hashedPass = config.hashPassword(rawPass);
+
+            // Query user by email and hashed password
+            String sql = "SELECT * FROM tbl_user WHERE u_email=? AND u_password=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, email);
+            pst.setString(2, hashedPass);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Check if email is verified
+                String verified = rs.getString("u_verified");
+                if (!"1".equals(verified)) {
+                    JOptionPane.showMessageDialog(this, "Your account is not verified. Please check your email.");
+                    return;
+                }
+
+                // Get role and name
+                String role = rs.getString("u_role");
+                String name = rs.getString("u_name");
+
+                // Redirect based on role
+                switch (role.toLowerCase()) {
+                    case "customer":
+                        Dashboard customerDash = new Dashboard(name);
+                        this.dispose();
+                        customerDash.setVisible(true);
+                        break;
+                    case "staff":
+//                        StaffDashboard staffDash = new StaffDashboard(name); // create this JFrame
+//                        this.dispose();
+//                        staffDash.setVisible(true);
+                        break;
+                    case "admin":
+//                        AdminDashboard adminDash = new AdminDashboard(name); // create this JFrame
+//                        this.dispose();
+//                        adminDash.setVisible(true);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(this, "Unknown role: " + role);
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Email or Password");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Login Error: " + e.getMessage());
         }
     }//GEN-LAST:event_LoginBtnMouseClicked
 
@@ -419,6 +525,115 @@ public class Login extends javax.swing.JFrame {
         LoginBtn.setForeground(Color.black);
     }//GEN-LAST:event_LoginBtnMouseExited
 
+    private void signupbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupbtnMouseClicked
+        Register reg = new Register();
+        this.dispose();
+        reg.setVisible(true);
+    }//GEN-LAST:event_signupbtnMouseClicked
+
+    private void signupbtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupbtnMouseEntered
+        signupPanel.setBackground(new Color(159, 159, 166));
+        signupbtn.setForeground(Color.white);
+    }//GEN-LAST:event_signupbtnMouseEntered
+
+    private void signupbtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupbtnMouseExited
+        signupPanel.setBackground(Color.white);
+        signupbtn.setForeground(Color.black);
+    }//GEN-LAST:event_signupbtnMouseExited
+
+    private void forgotpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordMouseClicked
+
+        String email = JOptionPane.showInputDialog(this, "Enter your registered email:");
+
+    if (email == null || email.isEmpty()) {
+        return;
+    }
+
+    try {
+        config db = new config();
+
+        String checkSql = "SELECT COUNT(*) FROM tbl_user WHERE u_email=?";
+        double count = db.getSingleValue(checkSql, email);
+
+        if (count == 0) {
+            JOptionPane.showMessageDialog(this, "No account found with this email.");
+            return;
+        }
+
+   
+        final JDialog loading = new JDialog(this, "Sending OTP...", true);
+        JLabel lbl = new JLabel("Please wait, sending OTP to email...");
+        lbl.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        loading.add(lbl);
+        loading.pack();
+        loading.setLocationRelativeTo(this);
+
+        SwingWorker<Boolean, Void> worker = new SwingWorker<Boolean, Void>() {
+            String otp = config.generateOtp();
+
+            @Override
+            protected Boolean doInBackground() {
+                return config.sendOtpEmail(email, otp);
+            }
+
+            @Override
+            protected void done() {
+                loading.dispose(); 
+                try {
+                    boolean sent = get();
+                    if (!sent) {
+                        JOptionPane.showMessageDialog(null, "Failed to send OTP. Try again later.");
+                        return;
+                    }
+
+                    String inputOtp = JOptionPane.showInputDialog(null, "Enter the OTP sent to your email:");
+
+                    if (inputOtp != null && inputOtp.equals(otp)) {
+                     
+                        String newPass = JOptionPane.showInputDialog(null, "Enter your new password:");
+                        if (newPass == null || newPass.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Password cannot be empty.");
+                            return;
+                        }
+
+                        String confirmPass = JOptionPane.showInputDialog(null, "Confirm your new password:");
+                        if (!newPass.equals(confirmPass)) {
+                            JOptionPane.showMessageDialog(null, "Passwords do not match.");
+                            return;
+                        }
+
+             
+                        String hashedPass = config.hashPassword(newPass);
+                        String updateSql = "UPDATE tbl_user SET u_password=? WHERE u_email=?";
+                        db.updateRecord(updateSql, hashedPass, email);
+
+                        JOptionPane.showMessageDialog(null, "Password reset successfully! You can now login.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrect OTP. Password reset failed.");
+                    }
+
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+                }
+            }
+        };
+
+        worker.execute();
+        loading.setVisible(true);
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_forgotpasswordMouseClicked
+
+    private void forgotpasswordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordMouseEntered
+        forgotpassword.setForeground(Color.blue);
+    }//GEN-LAST:event_forgotpasswordMouseEntered
+
+    private void forgotpasswordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasswordMouseExited
+        forgotpassword.setForeground(Color.black);
+    }//GEN-LAST:event_forgotpasswordMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -461,6 +676,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel detailPanel;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JPanel exitPane;
+    private javax.swing.JLabel forgotpassword;
     private javax.swing.JPanel headerTab;
     private javax.swing.JLabel homeBtn;
     private javax.swing.JPanel homePanel;
@@ -468,13 +684,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel loginBtn;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JPasswordField password;
+    private javax.swing.JPanel signupPanel;
+    private javax.swing.JLabel signupbtn;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

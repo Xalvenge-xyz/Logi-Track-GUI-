@@ -14,8 +14,9 @@ import java.awt.Color;
 public class Dashboard extends javax.swing.JFrame {
 
     int yMouse, xMouse;
-    public Dashboard() {
+    public Dashboard(String name) {
         initComponents();
+        lblUser.setText("Welcome, " + name);
     }
 
     /**
@@ -45,6 +46,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -144,7 +146,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("LOGI TRACK");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 190, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -325,6 +327,11 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 110, -1));
+
+        lblUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblUser.setForeground(new java.awt.Color(255, 255, 255));
+        lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, 380));
 
@@ -577,7 +584,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+              
             }
         });
     }
@@ -623,5 +630,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }
