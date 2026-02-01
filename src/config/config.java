@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Random;
+import javax.swing.JTable;
+import net.proteanit.sql.DbUtils;
 
 public class config {
     
@@ -292,5 +294,22 @@ public void addRecord(String sql, Object... values) {
             System.out.println("Error sending email: " + e.getMessage());
             return false;
         }
+    }
+    
+    public void displayData(String sql, javax.swing.JTable table) {
+    try (Connection conn = connectDB();
+         PreparedStatement pstmt = conn.prepareStatement(sql);
+         ResultSet rs = pstmt.executeQuery()) {
+        
+        // This line automatically maps the Resultset to your JTable
+        table.setModel(DbUtils.resultSetToTableModel(rs));
+        
+    } catch (SQLException e) {
+        System.out.println("Error displaying data: " + e.getMessage());
+    }
+}
+
+    public void usertable(String sql, JTable usertable) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

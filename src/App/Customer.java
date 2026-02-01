@@ -11,10 +11,10 @@ import java.awt.Color;
  *
  * @author mc37n
  */
-public class Dashboard extends javax.swing.JFrame {
+public class Customer extends javax.swing.JFrame {
 
     int yMouse, xMouse;
-    public Dashboard(String name) {
+    public Customer(String name) {
         initComponents();
         lblUser.setText("Welcome, " + name);
     }
@@ -50,8 +50,14 @@ public class Dashboard extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -145,7 +151,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LOGI TRACK");
+        jLabel2.setText("Staff");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 190, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -337,16 +343,47 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 3, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Dashboard is Under maintenance");
-        jPanel17.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 610, 380));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pngtree-3d-rendered-illustrations-of-warehousing-transportation-and-delivery-logistics-picture-image_5810054 (2).jpg"))); // NOI18N
-        jPanel17.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 630, 410));
+        jLabel9.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Users");
+        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 70));
+
+        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Delivered");
+        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+
+        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 70));
+
+        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("Revenue");
+        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+
+        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 70));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 250));
 
         jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 
@@ -422,11 +459,11 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Logout", jPanel12);
@@ -571,14 +608,15 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Customer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -600,6 +638,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -622,6 +661,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -629,7 +671,9 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

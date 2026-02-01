@@ -440,19 +440,19 @@ public class Login extends javax.swing.JFrame {
                 // Redirect based on role
                 switch (role.toLowerCase()) {
                     case "customer":
-                        Dashboard customerDash = new Dashboard(name);
+                        Customer customerDash = new Customer(name);
                         this.dispose();
                         customerDash.setVisible(true);
                         break;
                     case "staff":
-//                        StaffDashboard staffDash = new StaffDashboard(name); // create this JFrame
-//                        this.dispose();
-//                        staffDash.setVisible(true);
+                        Staff staffDash = new Staff(name); // create this JFrame
+                        this.dispose();
+                        staffDash.setVisible(true);
                         break;
                     case "admin":
-//                        AdminDashboard adminDash = new AdminDashboard(name); // create this JFrame
-//                        this.dispose();
-//                        adminDash.setVisible(true);
+                        Admin adminDash = new Admin(name);
+                        this.dispose();
+                        adminDash.setVisible(true);
                         break;
                     default:
                         JOptionPane.showMessageDialog(this, "Unknown role: " + role);
