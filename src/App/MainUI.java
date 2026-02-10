@@ -31,7 +31,6 @@ public class MainUI extends javax.swing.JFrame {
         Header = new javax.swing.JPanel();
         exitPane = new javax.swing.JPanel();
         exitBtn = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         homeHeader = new javax.swing.JLabel();
@@ -39,7 +38,14 @@ public class MainUI extends javax.swing.JFrame {
         detailHeafer = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         loginHeader = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        det2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        details = new javax.swing.JLabel();
+        details2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -49,6 +55,7 @@ public class MainUI extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Header.setBackground(new java.awt.Color(0, 0, 0));
+        Header.setForeground(new java.awt.Color(153, 153, 153));
         Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 HeaderMouseDragged(evt);
@@ -62,8 +69,9 @@ public class MainUI extends javax.swing.JFrame {
                 HeaderMousePressed(evt);
             }
         });
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exitPane.setBackground(new java.awt.Color(0, 0, 0));
+        exitPane.setBackground(new java.awt.Color(255, 255, 255));
         exitPane.setForeground(new java.awt.Color(204, 0, 51));
 
         exitBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -95,34 +103,13 @@ public class MainUI extends javax.swing.JFrame {
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
-        Header.setLayout(HeaderLayout);
-        HeaderLayout.setHorizontalGroup(
-            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderLayout.createSequentialGroup()
-                .addComponent(exitPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 780, Short.MAX_VALUE))
-        );
-        HeaderLayout.setVerticalGroup(
-            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HeaderLayout.createSequentialGroup()
-                .addComponent(exitPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 30));
-
-        jLabel1.setFont(new java.awt.Font("Serif", 3, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome to Logi Track");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 810, 100));
+        Header.add(exitPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        homeHeader.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        homeHeader.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         homeHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         homeHeader.setText("Home");
         homeHeader.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,7 +137,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        detailHeafer.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        detailHeafer.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         detailHeafer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         detailHeafer.setText("Details");
         detailHeafer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -180,7 +167,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        loginHeader.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        loginHeader.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         loginHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginHeader.setText("Login");
         loginHeader.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,10 +216,63 @@ public class MainUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 810, 30));
+        Header.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logistic-network-distribution-background-logistic-transport-concept_250469-9125.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 810, 380));
+        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 30));
+
+        jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 3, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 204));
+        jLabel3.setText("Logitrack");
+        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 530, 70));
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("World best transport service");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 250, 30));
+
+        det2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        det2.setForeground(new java.awt.Color(255, 255, 255));
+        det2.setText("We providing Reliable ");
+        jPanel1.add(det2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 230, 40));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Logistic & Transport");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 180, 20));
+
+        jPanel6.setBackground(new java.awt.Color(255, 102, 51));
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Discover More");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 150, 40));
+
+        details.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        details.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/4.jpg"))); // NOI18N
+        jPanel1.add(details, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 480));
+
+        details2.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        details2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        details2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(details2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 810, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,17 +403,23 @@ public class MainUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Header;
+    private javax.swing.JLabel det2;
     private javax.swing.JLabel detailHeafer;
+    private javax.swing.JLabel details;
+    private javax.swing.JLabel details2;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JPanel exitPane;
     private javax.swing.JLabel homeHeader;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel loginHeader;
     // End of variables declaration//GEN-END:variables
 }

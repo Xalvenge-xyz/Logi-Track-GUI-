@@ -51,6 +51,7 @@ public class Login extends javax.swing.JFrame {
         signupPanel = new javax.swing.JPanel();
         signupbtn = new javax.swing.JLabel();
         forgotpassword = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         headerTab = new javax.swing.JPanel();
         homePanel = new javax.swing.JPanel();
         homeBtn = new javax.swing.JLabel();
@@ -58,13 +59,13 @@ public class Login extends javax.swing.JFrame {
         detailBtn = new javax.swing.JLabel();
         loginPanel = new javax.swing.JPanel();
         loginBtn = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -241,10 +242,14 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 270, 280, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 280, 300));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/037cb3029930a9c71d1eadaabeb42b4f.jpg"))); // NOI18N
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 300));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 280, 300));
 
         headerTab.setBackground(new java.awt.Color(255, 255, 255));
         headerTab.setPreferredSize(new java.awt.Dimension(810, 40));
+        headerTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         homePanel.setBackground(new java.awt.Color(255, 255, 255));
         homePanel.setPreferredSize(new java.awt.Dimension(66, 17));
@@ -275,6 +280,8 @@ public class Login extends javax.swing.JFrame {
             .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
+        headerTab.add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 0, -1, 30));
+
         detailPanel.setBackground(new java.awt.Color(255, 255, 255));
         detailPanel.setPreferredSize(new java.awt.Dimension(66, 17));
 
@@ -303,6 +310,8 @@ public class Login extends javax.swing.JFrame {
             detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(detailBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        headerTab.add(detailPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 0, -1, 30));
 
         loginPanel.setBackground(new java.awt.Color(255, 255, 255));
         loginPanel.setPreferredSize(new java.awt.Dimension(66, 17));
@@ -333,30 +342,12 @@ public class Login extends javax.swing.JFrame {
             .addComponent(loginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout headerTabLayout = new javax.swing.GroupLayout(headerTab);
-        headerTab.setLayout(headerTabLayout);
-        headerTabLayout.setHorizontalGroup(
-            headerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerTabLayout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(homePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(detailPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
-        );
-        headerTabLayout.setVerticalGroup(
-            headerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(detailPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-            .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
+        headerTab.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 0, -1, 30));
 
         jPanel1.add(headerTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 30));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logistic-network-distribution-background-logistic-transport-concept_250469-9125.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 810, 380));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logistic-network-distribution-background-logistic-transport-concept_250469-9125.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -683,7 +674,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

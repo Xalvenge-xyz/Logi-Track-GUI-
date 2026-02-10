@@ -58,6 +58,7 @@ public class Customer extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -145,7 +146,7 @@ public class Customer extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -385,7 +386,10 @@ public class Customer extends javax.swing.JFrame {
 
         jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 250));
 
-        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/00.jpg"))); // NOI18N
+        jPanel17.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -30, 800, 410));
+
+        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 380));
 
         jTabbedPane1.addTab("Dashboard", jPanel7);
 
@@ -459,7 +463,7 @@ public class Customer extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 625, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -640,6 +644,7 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
