@@ -38,8 +38,15 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        exitPane = new javax.swing.JPanel();
+        headerTab = new javax.swing.JPanel();
+        homePanel = new javax.swing.JPanel();
+        homeBtn = new javax.swing.JLabel();
+        detailPanel = new javax.swing.JPanel();
+        detailBtn = new javax.swing.JLabel();
+        loginPanel = new javax.swing.JPanel();
+        loginBtn = new javax.swing.JLabel();
         exitBtn = new javax.swing.JLabel();
+        exitPane = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
@@ -51,14 +58,6 @@ public class Login extends javax.swing.JFrame {
         signupPanel = new javax.swing.JPanel();
         signupbtn = new javax.swing.JLabel();
         forgotpassword = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        headerTab = new javax.swing.JPanel();
-        homePanel = new javax.swing.JPanel();
-        homeBtn = new javax.swing.JLabel();
-        detailPanel = new javax.swing.JPanel();
-        detailBtn = new javax.swing.JLabel();
-        loginPanel = new javax.swing.JPanel();
-        loginBtn = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jPanel2MouseDragged(evt);
@@ -80,8 +79,102 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        exitPane.setBackground(new java.awt.Color(0, 0, 0));
-        exitPane.setForeground(new java.awt.Color(204, 0, 51));
+        headerTab.setBackground(new java.awt.Color(255, 255, 255));
+        headerTab.setPreferredSize(new java.awt.Dimension(810, 40));
+        headerTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        homePanel.setBackground(new java.awt.Color(255, 255, 255));
+        homePanel.setPreferredSize(new java.awt.Dimension(66, 17));
+
+        homeBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        homeBtn.setText("Home");
+        homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homeBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                homeBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
+        homePanel.setLayout(homePanelLayout);
+        homePanelLayout.setHorizontalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+        );
+        homePanelLayout.setVerticalGroup(
+            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        headerTab.add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 0, -1, 30));
+
+        detailPanel.setBackground(new java.awt.Color(255, 255, 255));
+        detailPanel.setPreferredSize(new java.awt.Dimension(66, 17));
+
+        detailBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        detailBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        detailBtn.setText("Details");
+        detailBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                detailBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                detailBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                detailBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout detailPanelLayout = new javax.swing.GroupLayout(detailPanel);
+        detailPanel.setLayout(detailPanelLayout);
+        detailPanelLayout.setHorizontalGroup(
+            detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(detailBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+        );
+        detailPanelLayout.setVerticalGroup(
+            detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(detailBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        headerTab.add(detailPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 0, -1, 30));
+
+        loginPanel.setBackground(new java.awt.Color(255, 255, 255));
+        loginPanel.setPreferredSize(new java.awt.Dimension(66, 17));
+
+        loginBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loginBtn.setText("Login");
+        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginBtnMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginBtnMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
+        loginPanel.setLayout(loginPanelLayout);
+        loginPanelLayout.setHorizontalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(loginBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+        );
+        loginPanelLayout.setVerticalGroup(
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(loginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        headerTab.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 0, -1, 30));
 
         exitBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         exitBtn.setForeground(new java.awt.Color(204, 0, 0));
@@ -101,33 +194,37 @@ public class Login extends javax.swing.JFrame {
                 exitBtnMousePressed(evt);
             }
         });
+        headerTab.add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 31));
+
+        exitPane.setBackground(new java.awt.Color(0, 0, 0));
+        exitPane.setForeground(new java.awt.Color(204, 0, 51));
 
         javax.swing.GroupLayout exitPaneLayout = new javax.swing.GroupLayout(exitPane);
         exitPane.setLayout(exitPaneLayout);
         exitPaneLayout.setHorizontalGroup(
             exitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGap(0, 40, Short.MAX_VALUE)
         );
         exitPaneLayout.setVerticalGroup(
             exitPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exitPaneLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 31, Short.MAX_VALUE)
         );
+
+        headerTab.add(exitPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, -1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(exitPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 780, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(headerTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(exitPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(headerTab, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 30));
@@ -242,109 +339,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(forgotpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 270, 280, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/037cb3029930a9c71d1eadaabeb42b4f.jpg"))); // NOI18N
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 300));
-
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 280, 300));
-
-        headerTab.setBackground(new java.awt.Color(255, 255, 255));
-        headerTab.setPreferredSize(new java.awt.Dimension(810, 40));
-        headerTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        homePanel.setBackground(new java.awt.Color(255, 255, 255));
-        homePanel.setPreferredSize(new java.awt.Dimension(66, 17));
-
-        homeBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        homeBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeBtn.setText("Home");
-        homeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                homeBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                homeBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                homeBtnMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout homePanelLayout = new javax.swing.GroupLayout(homePanel);
-        homePanel.setLayout(homePanelLayout);
-        homePanelLayout.setHorizontalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-        );
-        homePanelLayout.setVerticalGroup(
-            homePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-        );
-
-        headerTab.add(homePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 0, -1, 30));
-
-        detailPanel.setBackground(new java.awt.Color(255, 255, 255));
-        detailPanel.setPreferredSize(new java.awt.Dimension(66, 17));
-
-        detailBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        detailBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        detailBtn.setText("Details");
-        detailBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                detailBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                detailBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                detailBtnMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout detailPanelLayout = new javax.swing.GroupLayout(detailPanel);
-        detailPanel.setLayout(detailPanelLayout);
-        detailPanelLayout.setHorizontalGroup(
-            detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(detailBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-        );
-        detailPanelLayout.setVerticalGroup(
-            detailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(detailBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        headerTab.add(detailPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(372, 0, -1, 30));
-
-        loginPanel.setBackground(new java.awt.Color(255, 255, 255));
-        loginPanel.setPreferredSize(new java.awt.Dimension(66, 17));
-
-        loginBtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        loginBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        loginBtn.setText("Login");
-        loginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginBtnMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginBtnMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginBtnMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
-        loginPanel.setLayout(loginPanelLayout);
-        loginPanelLayout.setHorizontalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-        );
-        loginPanelLayout.setVerticalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        headerTab.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(518, 0, -1, 30));
-
-        jPanel1.add(headerTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 30));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logistic-network-distribution-background-logistic-transport-concept_250469-9125.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 410));
@@ -674,7 +669,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

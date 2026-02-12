@@ -42,8 +42,8 @@ public class MainUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         det2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        dscpnl = new javax.swing.JPanel();
+        dsc = new javax.swing.JLabel();
         details = new javax.swing.JLabel();
         details2 = new javax.swing.JLabel();
 
@@ -109,7 +109,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        homeHeader.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        homeHeader.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         homeHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         homeHeader.setText("Home");
         homeHeader.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,7 +128,7 @@ public class MainUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(homeHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+            .addComponent(homeHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        detailHeafer.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        detailHeafer.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         detailHeafer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         detailHeafer.setText("Details");
         detailHeafer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -167,7 +167,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        loginHeader.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        loginHeader.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         loginHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginHeader.setText("Login");
         loginHeader.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -198,13 +198,13 @@ public class MainUI extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(226, 226, 226)
+                .addGap(275, 275, 275)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,28 +242,36 @@ public class MainUI extends javax.swing.JFrame {
         jLabel1.setText("Logistic & Transport");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 180, 20));
 
-        jPanel6.setBackground(new java.awt.Color(255, 102, 51));
+        dscpnl.setBackground(new java.awt.Color(255, 102, 51));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Discover More");
+        dsc.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        dsc.setForeground(new java.awt.Color(255, 255, 255));
+        dsc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dsc.setText("Discover More");
+        dsc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dscMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dscMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dscMouseExited(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout dscpnlLayout = new javax.swing.GroupLayout(dscpnl);
+        dscpnl.setLayout(dscpnlLayout);
+        dscpnlLayout.setHorizontalGroup(
+            dscpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dsc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        dscpnlLayout.setVerticalGroup(
+            dscpnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(dsc, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 150, 40));
+        jPanel1.add(dscpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 150, 40));
 
         details.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         details.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/4.jpg"))); // NOI18N
@@ -366,6 +374,25 @@ public class MainUI extends javax.swing.JFrame {
         loginHeader.setForeground(Color.black);
     }//GEN-LAST:event_loginHeaderMouseExited
 
+    private void dscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dscMouseClicked
+        // TODO add your handling code here:
+                Details det = new Details();
+                this.dispose();
+                det.setVisible(true);
+        
+    }//GEN-LAST:event_dscMouseClicked
+
+    private void dscMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dscMouseEntered
+        dscpnl.setBackground(Color.ORANGE);
+        dsc.setForeground(Color.white);
+    }//GEN-LAST:event_dscMouseEntered
+
+    private void dscMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dscMouseExited
+        // TODO add your handling code here:
+        dscpnl.setBackground(Color.orange);
+        dsc.setForeground(Color.white);
+    }//GEN-LAST:event_dscMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -407,19 +434,19 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel detailHeafer;
     private javax.swing.JLabel details;
     private javax.swing.JLabel details2;
+    private javax.swing.JLabel dsc;
+    private javax.swing.JPanel dscpnl;
     private javax.swing.JLabel exitBtn;
     private javax.swing.JPanel exitPane;
     private javax.swing.JLabel homeHeader;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel loginHeader;
     // End of variables declaration//GEN-END:variables
 }

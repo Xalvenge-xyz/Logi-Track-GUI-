@@ -56,9 +56,6 @@ public class Customer extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel20 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -146,7 +143,7 @@ public class Customer extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(255, 153, 51));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -347,23 +344,25 @@ public class Customer extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel22.setBackground(new java.awt.Color(255, 153, 102));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Users");
-        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 30));
 
-        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 70));
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 30));
 
+        jPanel23.setBackground(new java.awt.Color(255, 153, 102));
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Delivered");
-        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, -1));
 
-        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 70));
+        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 140, 30));
 
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -372,22 +371,7 @@ public class Customer extends javax.swing.JFrame {
         jLabel19.setText("Revenue");
         jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
 
-        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 70));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 250));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/00.jpg"))); // NOI18N
-        jPanel17.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -30, 800, 410));
+        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, -1));
 
         jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 380));
 
@@ -644,7 +628,6 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -676,9 +659,7 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblUser;
     // End of variables declaration//GEN-END:variables
 }

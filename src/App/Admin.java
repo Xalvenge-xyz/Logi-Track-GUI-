@@ -56,12 +56,22 @@ public class Admin extends javax.swing.JFrame {
         tab = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
-        jPanel22 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel23 = new javax.swing.JPanel();
+        userpnl = new javax.swing.JPanel();
+        Users = new javax.swing.JLabel();
+        userbtn = new javax.swing.JLabel();
+        trackpnl = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jPanel24 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        rciptpnl = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deliverytable = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
@@ -92,7 +102,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(810, 31));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -107,6 +117,7 @@ public class Admin extends javax.swing.JFrame {
                 jPanel2MousePressed(evt);
             }
         });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setPreferredSize(new java.awt.Dimension(30, 30));
@@ -138,29 +149,18 @@ public class Admin extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 780, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 31));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel4.setBackground(new java.awt.Color(255, 102, 0));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ADMIN");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 190, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 180, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -347,40 +347,87 @@ public class Admin extends javax.swing.JFrame {
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel4.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, 380));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 180, 380));
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        userpnl.setBackground(new java.awt.Color(255, 102, 51));
+        userpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Users");
-        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        Users.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        Users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Users.setText("Users");
+        userpnl.add(Users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 130, 50));
 
-        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 70));
+        userbtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        userbtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        userbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/8e0cfaf58709f7e626973f0b00d033d0-removebg-preview.png"))); // NOI18N
+        userpnl.add(userbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 60));
 
-        jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel17.add(userpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 60));
+
+        trackpnl.setBackground(new java.awt.Color(51, 102, 255));
+        trackpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Delivered");
-        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jLabel10.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/0f__1_-removebg-preview.png"))); // NOI18N
+        trackpnl.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 60));
 
-        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 70));
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Tracking");
+        trackpnl.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 60));
 
-        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel17.add(trackpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 160, 60));
+
+        rciptpnl.setBackground(new java.awt.Color(255, 255, 255));
+        rciptpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Revenue");
-        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/d__1_-removebg-preview.png"))); // NOI18N
+        rciptpnl.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 60, 60));
 
-        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 70));
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Receipt");
+        rciptpnl.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 60));
 
+        jPanel17.add(rciptpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 160, 60));
+        jPanel17.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, 80));
+
+        jPanel18.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/set8__1_-removebg-preview.png"))); // NOI18N
+        jPanel18.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 73, 34));
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Settings");
+        jPanel18.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 90, 60));
+
+        jPanel17.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 60));
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Logout");
+        jPanel22.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 3, 130, 60));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout__1_-removebg-preview (1).png"))); // NOI18N
+        jPanel22.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 50, 60));
+
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 160, 60));
+
+        deliverytable.setBackground(new java.awt.Color(255, 102, 0));
         deliverytable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -391,9 +438,9 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(deliverytable);
 
-        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 250));
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 650, 400));
 
-        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
+        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 380));
 
         tab.addTab("Dashboard", jPanel7);
 
@@ -510,7 +557,7 @@ public class Admin extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
 
         tab.addTab("Logout", jPanel12);
@@ -709,10 +756,12 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Users;
     private javax.swing.JTable deliverytable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -721,6 +770,10 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -737,13 +790,12 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -755,7 +807,12 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblUser;
+    private javax.swing.JLabel logo;
+    private javax.swing.JPanel rciptpnl;
     private javax.swing.JTabbedPane tab;
+    private javax.swing.JPanel trackpnl;
+    private javax.swing.JLabel userbtn;
+    private javax.swing.JPanel userpnl;
     private javax.swing.JTable usertable;
     private javax.swing.JPanel viewUsers;
     // End of variables declaration//GEN-END:variables
