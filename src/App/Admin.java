@@ -72,6 +72,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        hii = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deliverytable = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
@@ -142,18 +143,22 @@ public class Admin extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 31));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 0, -1, 31));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel4.setBackground(new java.awt.Color(255, 153, 0));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -347,7 +352,7 @@ public class Admin extends javax.swing.JFrame {
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel4.add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 190, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 180, 380));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 190, 380));
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -360,14 +365,14 @@ public class Admin extends javax.swing.JFrame {
         Users.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         Users.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Users.setText("Users");
-        userpnl.add(Users, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 6, 130, 50));
+        userpnl.add(Users, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 120, 60));
 
         userbtn.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         userbtn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         userbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/8e0cfaf58709f7e626973f0b00d033d0-removebg-preview.png"))); // NOI18N
-        userpnl.add(userbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 60));
+        userpnl.add(userbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 60));
 
-        jPanel17.add(userpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 150, 60));
+        jPanel17.add(userpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 150, 60));
 
         trackpnl.setBackground(new java.awt.Color(51, 102, 255));
         trackpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -376,14 +381,14 @@ public class Admin extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(51, 102, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/0f__1_-removebg-preview.png"))); // NOI18N
-        trackpnl.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 60));
+        trackpnl.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 60));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Tracking");
-        trackpnl.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 60));
+        trackpnl.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 150, 60));
 
-        jPanel17.add(trackpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 160, 60));
+        jPanel17.add(trackpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 160, 60));
 
         rciptpnl.setBackground(new java.awt.Color(255, 255, 255));
         rciptpnl.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -398,21 +403,21 @@ public class Admin extends javax.swing.JFrame {
         jLabel12.setText("Receipt");
         rciptpnl.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 130, 60));
 
-        jPanel17.add(rciptpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 160, 60));
+        jPanel17.add(rciptpnl, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 60));
         jPanel17.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, 80));
 
         jPanel18.setBackground(new java.awt.Color(204, 204, 204));
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/set8__1_-removebg-preview.png"))); // NOI18N
-        jPanel18.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 73, 34));
+        jPanel18.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 70, 60));
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setText("Settings");
         jPanel18.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 90, 60));
 
-        jPanel17.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 60));
+        jPanel17.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 150, 60));
 
         jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -420,12 +425,15 @@ public class Admin extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Logout");
-        jPanel22.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 3, 130, 60));
+        jPanel22.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 140, 60));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout__1_-removebg-preview (1).png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/loopg-removebg-preview.png"))); // NOI18N
         jPanel22.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 50, 60));
 
-        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 160, 60));
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 160, 60));
+
+        hii.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/hijpg-removebg-preview.png"))); // NOI18N
+        jPanel17.add(hii, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 290, 80, 90));
 
         deliverytable.setBackground(new java.awt.Color(255, 102, 0));
         deliverytable.setModel(new javax.swing.table.DefaultTableModel(
@@ -758,6 +766,7 @@ public class Admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Users;
     private javax.swing.JTable deliverytable;
+    private javax.swing.JLabel hii;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

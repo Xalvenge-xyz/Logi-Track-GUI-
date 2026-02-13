@@ -88,7 +88,7 @@ public class Staff extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(810, 31));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -103,6 +103,7 @@ public class Staff extends javax.swing.JFrame {
                 jPanel2MousePressed(evt);
             }
         });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setPreferredSize(new java.awt.Dimension(30, 30));
@@ -127,29 +128,22 @@ public class Staff extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 780, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 0, -1, 31));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel4.setBackground(new java.awt.Color(255, 153, 0));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
@@ -355,27 +349,27 @@ public class Staff extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Users");
-        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 70));
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 30));
 
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Delivered");
-        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 70));
+        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 30));
 
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Revenue");
-        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, -1));
+        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
 
-        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 70));
+        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 30));
 
         deliverytable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -387,9 +381,9 @@ public class Staff extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(deliverytable);
 
-        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 560, 250));
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 570, 290));
 
-        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
+        jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 380));
 
         tab.addTab("Dashboard", jPanel7);
 
