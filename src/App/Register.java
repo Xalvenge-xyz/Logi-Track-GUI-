@@ -355,7 +355,7 @@ public class Register extends javax.swing.JFrame {
     try {
         config db = new config();
 
-        String checkSql = "SELECT COUNT(*) FROM tbl_user WHERE u_email=?";
+        String checkSql = "SELECT COUNT(*) FROM tbl_accounts WHERE acc_email=?";
         double count = db.getSingleValue(checkSql, email);
 
         if (count > 0) {
@@ -396,7 +396,7 @@ public class Register extends javax.swing.JFrame {
                         
                         String hashedPass = config.hashPassword(rawPass);
 
-                        String sql = "INSERT INTO tbl_user(u_name, u_lname, u_address, u_email, u_contact, u_password, u_verified, u_role) "
+                        String sql = "INSERT INTO tbl_accounts(acc_name, acc_lname, acc_address, acc_email, acc_contact, acc_pass, acc_status, acc_role) "
                                    + "VALUES(?,?,?,?,?,?,1,'customer')";
 
                         db.addRecord(sql, fname, lname, address, email, contact, hashedPass);

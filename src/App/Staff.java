@@ -7,18 +7,40 @@ package App;
 
 import config.config;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+import session.AuthFrame;
+import session.session;
 
 /**
  *
  * @author mc37n
  */
-public class Staff extends javax.swing.JFrame {
+public class Staff extends AuthFrame {
 
     int yMouse, xMouse;
-    public Staff(String name) {
+    public Staff() {
+        if(!authorized) return; 
+        
+        if(!session.getRole().equals("staff")){
+            JOptionPane.showMessageDialog(null,"Access denied!");
+            new Login().setVisible(true);
+            this.dispose();
+            return;
+        }
         initComponents();
-        usertable();
-        lblUser.setText("Welcome, " + name);
+        loadTotalCustomer();
+        loadTotalDelivered();
+        loadRevenue();
+        ordertbl();
+        listorders();    
+        enableStatusUpdate();
+        lblUser.setText("Welcome, " + session.getName());
     }
 
     /**
@@ -54,18 +76,22 @@ public class Staff extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        totalcustomer = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        delivered = new javax.swing.JLabel();
         jPanel24 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
+        totalrevenue = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         deliverytable = new javax.swing.JTable();
+        dshsearch = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         viewUsers = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        usertable = new javax.swing.JTable();
+        listorder = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        ordersearch = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -105,7 +131,7 @@ public class Staff extends javax.swing.JFrame {
         });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(30, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -139,7 +165,7 @@ public class Staff extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 0, -1, 31));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 31));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -149,7 +175,7 @@ public class Staff extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ADMIN");
+        jLabel2.setText("Staff");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 190, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -186,7 +212,7 @@ public class Staff extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Users");
+        jLabel4.setText("Orders");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -350,8 +376,9 @@ public class Staff extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Users");
         jPanel22.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
+        jPanel22.add(totalcustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 20));
 
-        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 160, 30));
+        jPanel17.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 160, 60));
 
         jPanel23.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -359,8 +386,9 @@ public class Staff extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Delivered");
         jPanel23.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
+        jPanel23.add(delivered, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 20));
 
-        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 160, 30));
+        jPanel17.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 160, 60));
 
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -368,8 +396,9 @@ public class Staff extends javax.swing.JFrame {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Revenue");
         jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 30));
+        jPanel24.add(totalrevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 160, 20));
 
-        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 30));
+        jPanel17.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, 160, 60));
 
         deliverytable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -381,7 +410,19 @@ public class Staff extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(deliverytable);
 
-        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 570, 290));
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 570, 230));
+
+        dshsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dshsearchActionPerformed(evt);
+            }
+        });
+        dshsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dshsearchKeyTyped(evt);
+            }
+        });
+        jPanel17.add(dshsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 160, -1));
 
         jPanel7.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 380));
 
@@ -391,7 +432,7 @@ public class Staff extends javax.swing.JFrame {
 
         viewUsers.setBackground(new java.awt.Color(255, 255, 255));
 
-        usertable.setModel(new javax.swing.table.DefaultTableModel(
+        listorder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -399,15 +440,19 @@ public class Staff extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(usertable);
+        jScrollPane2.setViewportView(listorder);
 
         jLabel11.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
-        jLabel11.setText("Users");
+        jLabel11.setText("Orders");
 
-        jTextField1.setText("Search");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        ordersearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                ordersearchActionPerformed(evt);
+            }
+        });
+        ordersearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ordersearchKeyTyped(evt);
             }
         });
 
@@ -421,7 +466,7 @@ public class Staff extends javax.swing.JFrame {
                     .addGroup(viewUsersLayout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(278, 278, 278)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ordersearch, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
@@ -431,7 +476,7 @@ public class Staff extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(viewUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ordersearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
@@ -439,7 +484,7 @@ public class Staff extends javax.swing.JFrame {
 
         jPanel8.add(viewUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 420));
 
-        tab.addTab("View Users", jPanel8);
+        tab.addTab("orders", jPanel8);
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -495,11 +540,11 @@ public class Staff extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 392, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
 
         tab.addTab("Logout", jPanel12);
@@ -627,15 +672,299 @@ public class Staff extends javax.swing.JFrame {
         jLabel8.setForeground(Color.black);
     }//GEN-LAST:event_jLabel8MouseExited
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void ordersearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-    
-    void usertable(){
-        config  conf = new config();
-        String sql = "SELEC * FROM tbl_user";
-        conf.usertable (sql, usertable);
+    }//GEN-LAST:event_ordersearchActionPerformed
+
+    private void dshsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dshsearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dshsearchActionPerformed
+
+    private void dshsearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dshsearchKeyTyped
+        String search = dshsearch.getText().trim();
+    String sql;
+
+    String baseQuery = "SELECT order_id AS id, " +
+                       "customer_name AS name, " +
+                       "pickup_address AS pickup_address, " +
+                       "dropoff_address AS drop_off, " +
+                       "status AS status, " +
+                       "order_date AS date " +
+                       "FROM tbl_orders";
+
+    if (search.isEmpty()) {
+        sql = baseQuery;
+    } else {
+        sql = baseQuery + " WHERE " +
+              "order_id LIKE ? OR " +
+              "customer_name LIKE ? OR " +
+              "pickup_address LIKE ? OR " +
+              "dropoff_address LIKE ? OR " +
+              "status LIKE ? OR " +
+              "order_date LIKE ?";
     }
+
+    try (Connection con = config.connectDB();
+         PreparedStatement pst = con.prepareStatement(sql)) {
+
+        if (!search.isEmpty()) {
+            String like = "%" + search + "%";
+            for (int i = 1; i <= 6; i++) {
+                pst.setString(i, like);
+            }
+        }
+
+        try (ResultSet rs = pst.executeQuery()) {
+            deliverytable.setModel(DbUtils.resultSetToTableModel(rs));
+            deliverytable.setDefaultEditor(Object.class, null);
+            pst.close();
+            con.close();
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Search error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_dshsearchKeyTyped
+
+    private void ordersearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ordersearchKeyTyped
+         String search = ordersearch.getText().trim();
+    String sql;
+
+    String baseQuery = "SELECT order_id AS id, " +
+                       "customer_name AS name, " +
+                       "pickup_address AS pickup_address, " +
+                       "dropoff_address AS drop_off, " +
+                       "status AS status, " +
+                       "order_date AS date " +
+                       "FROM tbl_orders";
+
+    if (search.isEmpty()) {
+        sql = baseQuery;
+    } else {
+        sql = baseQuery + " WHERE " +
+              "order_id LIKE ? OR " +
+              "customer_name LIKE ? OR " +
+              "pickup_address LIKE ? OR " +
+              "dropoff_address LIKE ? OR " +
+              "status LIKE ? OR " +
+              "order_date LIKE ?";
+    }
+
+    try (Connection con = config.connectDB();
+         PreparedStatement pst = con.prepareStatement(sql)) {
+
+        if (!search.isEmpty()) {
+            String like = "%" + search + "%";
+            for (int i = 1; i <= 6; i++) {
+                pst.setString(i, like);
+            }
+        }
+
+        try (ResultSet rs = pst.executeQuery()) {
+            listorder.setModel(DbUtils.resultSetToTableModel(rs));
+            listorder.setDefaultEditor(Object.class, null);
+            pst.close();
+            con.close();
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Search error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_ordersearchKeyTyped
+    
+    private void loadTotalCustomer() {
+
+    try {
+        Connection con = config.connectDB();
+        String sql = "SELECT COUNT(*) AS total FROM tbl_accounts WHERE acc_role = 'customer'";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            int totalcustomers = rs.getInt("total");
+            totalcustomer.setText(String.valueOf(totalcustomers));
+            pst.close();
+            con.close();
+        }
+        pst.close();
+        con.close();
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+}
+    
+       private void loadTotalDelivered() {
+
+    try {
+        Connection con = config.connectDB();
+        String sql = "SELECT COUNT(*) AS total FROM tbl_orders WHERE status = 'Delivered'";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            int totaldelivered = rs.getInt("total");
+            delivered.setText(String.valueOf(totaldelivered));
+        }
+        pst.close();
+        con.close();
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+}
+       
+        private void loadRevenue() {
+
+    String sql = "SELECT SUM(estimated_fee) AS revenue " +
+                 "FROM tbl_orders WHERE status='Delivered'";
+
+    try (Connection con = config.connectDB();
+         PreparedStatement pst = con.prepareStatement(sql);
+         ResultSet rs = pst.executeQuery()) {
+
+        if (rs.next()) {
+
+            double revenue = rs.getDouble("revenue");
+
+            // if NULL (no data yet)
+            if (rs.wasNull()) {
+                revenue = 0;
+            }
+
+            totalrevenue.setText(String.format("₱ %.2f", revenue));
+        }
+        pst.close();
+        con.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+        System.out.println("Revenue load error: " + e.getMessage());
+    }
+}
+        
+    public void ordertbl() {
+
+    String sql = "SELECT order_id AS id, " +
+                 "customer_name AS name, " +
+                 "pickup_address AS pickup_address, " +
+                 "dropoff_address AS drop_off, " +
+                 "status AS status, " +
+                 "order_date AS date " +
+                 "FROM tbl_orders " +
+                 "WHERE status IN ('Pending','Intransit')";
+
+    config conf = new config();
+    conf.displayData(sql, deliverytable);
+
+}
+ 
+    
+    //orders====================================
+    
+    
+   void listorders() {
+
+    String sql =
+            "SELECT order_id AS id, " +
+            "customer_name AS name, " +
+            "pickup_address AS pickup_address, " +
+            "dropoff_address AS drop_off, " +
+            "status AS status, " +
+            "order_date AS date " +
+            "FROM tbl_orders";
+
+    config conf = new config();
+    conf.displayData(sql, listorder);
+
+    setupStatusDropdown();   // dropdown column
+}
+private void setupStatusDropdown() {
+
+    String[] statuses = {"Pending", "Intransit", "Delivered"};
+
+    JComboBox<String> comboBox = new JComboBox<>(statuses);
+
+    int statusColumn = 4; // status column index
+
+    listorder.getColumnModel()
+            .getColumn(statusColumn)
+            .setCellEditor(new DefaultCellEditor(comboBox));
+}
+
+    private boolean isUpdatingStatus = false;
+
+    
+   private void enableStatusUpdate() {
+
+    listorder.getModel().addTableModelListener(e -> {
+
+        if (isUpdatingStatus) return; // 🚨 prevent duplicate trigger
+
+        if (e.getType() == javax.swing.event.TableModelEvent.UPDATE) {
+
+            int row = e.getFirstRow();
+            int column = e.getColumn();
+
+            if (column == 4) {
+
+                Object orderIdObj = listorder.getValueAt(row, 0);
+                Object statusObj = listorder.getValueAt(row, 4);
+
+                if (orderIdObj == null || statusObj == null) return;
+
+                int orderId = Integer.parseInt(orderIdObj.toString());
+                String newStatus = statusObj.toString();
+
+                updateOrderStatus(orderId, newStatus);
+            }
+        }
+    });
+}
+
+
+    
+   private void updateOrderStatus(int orderId, String status) {
+
+    if (isUpdatingStatus) return; // stop spam updates
+    isUpdatingStatus = true;
+
+    try {
+
+        // ✅ STOP JTable editing FIRST (prevents lock)
+        if (listorder.isEditing()) {
+            listorder.getCellEditor().stopCellEditing();
+        }
+
+        String sql = "UPDATE tbl_orders SET status=? WHERE order_id=?";
+
+        try (Connection con = config.connectDB();
+             PreparedStatement pst = con.prepareStatement(sql)) {
+
+            pst.setString(1, status);
+            pst.setInt(2, orderId);
+
+            pst.executeUpdate();
+        }
+
+        System.out.println("Status updated: " + status);
+        
+        loadTotalDelivered();
+        loadRevenue();
+        ordertbl();
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this,
+                "Status update failed: " + e.getMessage());
+    }
+
+    isUpdatingStatus = false; // ✅ unlock listener
+}
+
+
+
+
+    
     /**
      * @param args the command line arguments
      */
@@ -675,7 +1004,9 @@ public class Staff extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel delivered;
     private javax.swing.JTable deliverytable;
+    private javax.swing.JTextField dshsearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -719,10 +1050,12 @@ public class Staff extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblUser;
+    private javax.swing.JTable listorder;
+    private javax.swing.JTextField ordersearch;
     private javax.swing.JTabbedPane tab;
-    private javax.swing.JTable usertable;
+    private javax.swing.JLabel totalcustomer;
+    private javax.swing.JLabel totalrevenue;
     private javax.swing.JPanel viewUsers;
     // End of variables declaration//GEN-END:variables
 }
