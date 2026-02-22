@@ -577,9 +577,22 @@ public class Admin extends AuthFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        MainUI UI = new MainUI();
+      
+           int confirm = JOptionPane.showConfirmDialog(
+            this,
+            "Are you sure you want to logout?",
+            "Logout",
+            JOptionPane.YES_NO_OPTION
+            );
+
+    if (confirm == JOptionPane.YES_OPTION) {
+
+        session.clear();
+
+         MainUI UI = new MainUI();
         this.dispose();
         UI.setVisible(true);
+    }
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
